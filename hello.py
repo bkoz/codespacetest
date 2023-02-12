@@ -3,9 +3,12 @@ A simple example
 """
 
 import numpy as np
+import datetime
+import time
 
-print('Hello from python!')
-
+secs = time.time()
+dt = datetime.datetime
+print(f'Today is {secs}')
 a = np.array([1,2])
 b = np.array([3,4])
 
