@@ -7,17 +7,18 @@ import datetime
 import time
 from datetime import timezone
 import tensorflow as tf
+import logging
 
+logging.basicConfig(level=logging.INFO)
 secs = time.time()
 dt_today = datetime.datetime.today()
-print(f'Today is {dt_today}')
+logging.info(f'Today is {dt_today}')
 dt_now = datetime.datetime.now()
-print(f'Today is {dt_now}')
+logging.info(f'Today is {dt_now}')
 
-a = np.array([1,2])
-b = np.array([3,4])
-
-print(f'a+b={a+b}')
+a = tf.constant([[1, 2, 3, 4]])
+b = tf.constant([[5, 6, 7, 8]])
+logging.info(f'a+b={a+b}')
 
 #
 # Simple tensorflow program to compare cpu and gpu execution times.
@@ -46,5 +47,5 @@ def matrix_multiply(size: int)-> dict:
    
     return results
 
-print(f'{tf.config.list_physical_devices()}')
-print(f'Matrix Multiply Elapsed Time: {matrix_multiply(4096)}')
+logging.info(f'{tf.config.list_physical_devices()}')
+logging.info(f'Matrix Multiply Elapsed Time: {matrix_multiply(4096)}')
